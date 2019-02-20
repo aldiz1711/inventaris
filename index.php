@@ -8,13 +8,8 @@
     <!-- Assets Core -->
     <?php require_once('assets/core.php'); ?>
     <!-- PHP CORE -->
-    <?php
-    require_once('controller/pages.php');
-    $page = new Page();
-    $page->CheckingQuery();
-    ?>
 </head>
 <body>
-    <?php $page->CorePages(); ?>
+    <?php require_once('view/layout.php'); ?>
 </body>
 </html>

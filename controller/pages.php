@@ -16,7 +16,7 @@ class Page
     function AdminPages(){
         switch ($this->queryPage) {
             case 'admin':
-                include_once('view/home.php');
+                include_once('view/admin/admin.php');
                 break;
         }
     }
@@ -37,5 +37,4 @@ class Page
             Self::DefaultPages();
         }
     }
-    
 }
