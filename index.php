@@ -10,6 +10,6 @@
     <!-- PHP CORE -->
 </head>
 <body>
-    <?php require_once('view/layout.php'); ?>
+    <?php require_once('view/layout/layout.php'); ?>
 </body>
 </html>

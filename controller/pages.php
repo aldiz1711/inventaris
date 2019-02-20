@@ -16,17 +16,23 @@ class Page
     function AdminPages(){
         switch ($this->queryPage) {
             case 'admin':
-                include_once('view/admin/admin.php');
+                include_once('view/admin/home.php');
                 break;
         }
     }
     function DefaultPages(){
         switch ($this->queryPage) {
             case 'login':
-                include_once('view/admin/login.php');
+                include_once('view/includes/login.php');
+                break;
+            case 'login':
+                include_once('view/login.php');
+                break;
+            case 'login':
+                include_once('view/login.php');
                 break;
             default:
-                include_once('view/home.php');
+                include_once('view/includes/home.php');
                 break;
         }
     }
