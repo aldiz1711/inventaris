@@ -8,7 +8,7 @@ class Page
         }
     }
     function AuthenticationPages(){
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['status']) && $_SESSION['status'] == "3") {
             return true;
         }
         return false;
@@ -18,20 +18,31 @@ class Page
             case 'admin':
                 include_once('view/admin/home.php');
                 break;
+            default:
+                include_once('view/admin/home.php');
+                break;
+
         }
     }
+
     function DefaultPages(){
         switch ($this->queryPage) {
             case 'login':
                 include_once('view/includes/login.php');
+                include_once('models/peminjam/index.php');
+                $peminjam = new Peminjam();
+                if (isset($_POST['submit'])) {
+                    if ($peminjam->Login($_POST)) {
+                        echo "<script>window.location.href ='?page=home'</script>";
+                    }
+                }
                 break;
-            case 'login':
-                include_once('view/login.php');
-                break;
-            case 'login':
-                include_once('view/login.php');
+            case 'register':
+                include_once('view/includes/register.php');
                 break;
             default:
+                include_once('models/keluar/index.php');
+                $keluar = new Keluar();
                 include_once('view/includes/home.php');
                 break;
         }

@@ -1,0 +1,15 @@
+.content{
+    min-height:700px;
+}
+.box{
+    max-width: 500px;
+    display: block;
+    margin: 30vh auto;
+    padding:10px 20px;
+    border-radius: 8px;
+}
+@media only screen and (max-width:768px){
+    .sidebar{
+        display:none;
+    }
+}
