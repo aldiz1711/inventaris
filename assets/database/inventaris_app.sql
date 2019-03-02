@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 01, 2019 at 01:44 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 5.6.31
+-- Host: 127.0.0.1
+-- Generation Time: Mar 02, 2019 at 07:24 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -56,7 +56,10 @@ CREATE TABLE `keluar_barang` (
   `id` varchar(15) NOT NULL,
   `id_barang` varchar(5) NOT NULL,
   `id_lokasi` varchar(5) NOT NULL,
-  `jumlah` int(11) NOT NULL
+  `jumlah` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `operator` varchar(16) NOT NULL,
+  `peminjam` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -80,19 +83,23 @@ CREATE TABLE `lokasi` (
 CREATE TABLE `masuk_barang` (
   `id` varchar(5) NOT NULL,
   `id_barang` varchar(5) NOT NULL,
-  `jumlah` int(5) NOT NULL
+  `jumlah` int(5) NOT NULL,
+  `tanggal` date NOT NULL,
+  `operator` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penanggung_jawab`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `penanggung_jawab` (
-  `id` varchar(5) NOT NULL,
+CREATE TABLE `user` (
+  `username` varchar(16) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `no_tlp` varchar(15) NOT NULL
+  `no_tlp` varchar(15) NOT NULL,
+  `status` enum('1','2','3') NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -120,7 +127,8 @@ ALTER TABLE `keluar_barang`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_barang` (`id_barang`,`id_lokasi`),
   ADD KEY `id_lokasi` (`id_lokasi`),
-  ADD KEY `id_barang_2` (`id_barang`);
+  ADD KEY `id_barang_2` (`id_barang`),
+  ADD KEY `operator` (`operator`,`peminjam`);
 
 --
 -- Indexes for table `lokasi`
@@ -136,13 +144,14 @@ ALTER TABLE `lokasi`
 ALTER TABLE `masuk_barang`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_barang` (`id_barang`),
-  ADD KEY `id_barang_2` (`id_barang`);
+  ADD KEY `id_barang_2` (`id_barang`),
+  ADD KEY `operator` (`operator`);
 
 --
--- Indexes for table `penanggung_jawab`
+-- Indexes for table `user`
 --
-ALTER TABLE `penanggung_jawab`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
