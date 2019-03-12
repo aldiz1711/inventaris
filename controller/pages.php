@@ -50,7 +50,11 @@ class Page
     function CorePages(){
         if (Self::AuthenticationPages()) {
             Self::AdminPages();
-        }else{
+        }
+        elseif (!Self::AuthenticationPages() && $this->queryPage == "admin") {
+            echo "<script>window.location.href = '/Inventaris/?page=login'</script>";
+        }
+        else{
             Self::DefaultPages();
         }
     }
