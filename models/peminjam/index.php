@@ -41,7 +41,10 @@
             $sql = "INSERT INTO user(username,password,nama,no_tlp) VALUES(?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("ssss",$username,$pass,$nama,$no_tlp);
-            $stmt->execute();
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
         }
 
         public function Logout()

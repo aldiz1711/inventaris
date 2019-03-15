@@ -2,7 +2,7 @@
 class Database
 {
     private $conn;
-    var $host = 'localhost';
+    var $host = 'localhost:3306';
     var $user = 'root';
     var $pass = '';
     var $db = 'inventaris_app';

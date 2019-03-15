@@ -41,12 +41,23 @@ class Page
                 $peminjam = new Peminjam();
                 if (isset($_POST['submit'])) {
                     if ($peminjam->Login($_POST)) {
-                        echo "<script>window.location.href ='?page=home'</script>";
+                        echo "<script>window.location.href ='?page=admin'</script>";
                     }
                 }
                 break;
             case 'register':
                 include_once('view/includes/register.php');
+                include_once('models/peminjam/index.php');
+                $peminjam = new Peminjam();
+                if (isset($_POST['submit'])) {
+                    if ($peminjam->Register($_POST)) {
+                        echo "Register Berhasil";
+                    }
+                    else 
+                    {
+                        echo "Register Gagal";
+                    }
+                }
                 break;
             default:
                 include_once('models/keluar/index.php');
