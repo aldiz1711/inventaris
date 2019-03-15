@@ -18,6 +18,14 @@ class Page
             case 'admin':
                 include_once('view/admin/home.php');
                 break;
+            case 'register':
+                include_once('view/includes/register.php');
+                break;
+            case 'logout':
+                include_once('models/peminjam/index.php');
+                $peminjam = new Peminjam();
+                $peminjam->Logout();
+                break;
             default:
                 include_once('view/admin/home.php');
                 break;

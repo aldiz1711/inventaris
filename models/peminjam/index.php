@@ -37,10 +37,16 @@
             $password = $data['password'];
             $nama = $data['nama'];
             $no_tlp = $data['no_tlp'];
+            $pass = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO user(username,password,nama,no_tlp) VALUES(?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("ssss",$username,$password,$nama,$no_tlp);
+            $stmt->bind_param("ssss",$username,$pass,$nama,$no_tlp);
             $stmt->execute();
+        }
+
+        public function Logout()
+        {
+            session_destroy();
         }
     }
 ?>
