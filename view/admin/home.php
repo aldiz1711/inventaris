@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="header-item">
-            <a id="dropbtn">
+            <a href="javascript:void(0)" id="dropbtn">
                 Account
             </a>
             <div class="dropmenu" id="test">

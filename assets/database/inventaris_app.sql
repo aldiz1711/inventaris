@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 02, 2019 at 07:24 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Host: localhost
+-- Generation Time: Mar 18, 2019 at 05:14 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -101,6 +101,13 @@ CREATE TABLE `user` (
   `no_tlp` varchar(15) NOT NULL,
   `status` enum('1','2','3') NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `nama`, `no_tlp`, `status`) VALUES
+('admin', '$2y$10$af.AnifBqSx/RRagEFgSV.OKNjLucEgCEPrYNiRyj/hbH6cliTqlu', 'admin', '+6281289465330', '3');
 
 --
 -- Indexes for dumped tables
