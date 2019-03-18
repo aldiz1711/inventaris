@@ -1,18 +1,27 @@
 *{
     box-sizing: border-box;
 }
+.row{
+  margin:0;
+}
 .container-fluid{
   padding:0;
 }
 .content{
     min-height:700px;
 }
-.dropmenu{
+.header-item .dropmenu{
   display: none;
   position: absolute;
   margin-top:10px;
   background-color: white;
   box-shadow: 1px 1px 10px black;
+}
+.sidebar-item .dropmenu{
+  display:none;
+  position:relative;
+  margin:10px;
+  background-color: white;
 }
 .dropmenu .drop{
   padding:0;
@@ -20,6 +29,10 @@
 }
 .dropmenu .drop .drop-item{
   padding:10px 25px;
+}
+.dropmenu .drop .drop-item .drop-link{
+  text-decoration: none;
+  color:black;
 }
 /* Login / Register */
 .log{
@@ -54,24 +67,30 @@
     padding-right:25px;
     padding-top:5px;
 }
+.header .header-link{
+  text-decoration: none;
+  color:white;
+}
 .sidebar{
   height: 100%;
   min-height: 700px;
   color:white;
-  padding:20px 0 20px 30px;
+  padding:20px 0 20px 0px;
 }
-.sidebar ul{
+.sidebar .sidebar-side{
   padding:0;
   margin:0;
 }
-.sidebar ul li{
+.sidebar .sidebar-side .sidebar-item{
   list-style: none;
   padding-bottom:15px;
 }
-.sidebar ul li a{
+.sidebar .sidebar-side .sidebar-item .sidebar-link{
   text-decoration: none;
   font-size: 18px;
   font-family:'Times New Roman', Times, serif;
+  color:white;
+  margin-left: 30px;
 }
 @media only screen and (max-width:1000px){
   .sidebar{

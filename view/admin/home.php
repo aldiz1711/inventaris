@@ -7,16 +7,16 @@
             </a>
         </li>
         <li class="header-item">
-            <a href="javascript:void(0)" id="dropbtn">
+            <a class="header-link" href="javascript:void(0)" id="dropbtn1">
                 Account
             </a>
-            <div class="dropmenu" id="test">
+            <div class="dropmenu" id="account">
                 <ul class="drop">
                     <li class="drop-item">
-                        <a href="">Test</a>
+                        <a class="drop-link" href="">Test</a>
                     </li>
                     <li class="drop-item">
-                        <a href="">Test</a>
+                        <a class="drop-link" href="">Test</a>
                     </li>
                 </ul>
             </div>
@@ -26,18 +26,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-2 sidebar bg-dark">
-            <ul>
-                <li>
-                    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <ul class="sidebar-side">
+                <li class="sidebar-item">
+                    <a id="dropbtn2" class="sidebar-link" href="javascript:void(0)"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <div class="dropmenu" id="dashboard">
+                        <ul class="drop">
+                            <li class="drop-item">
+                                <a class="drop-link" href="">Test</a>
+                            </li>
+                            <li class="drop-item">
+                                <a class="drop-link" href="">Test</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li>
-                    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 </li>
             </ul>
         </div>

@@ -1,9 +1,18 @@
 $(document).ready(function(){
-    $("#dropbtn").click(function(){
-        if(document.getElementById("test").style.display == "block"){
-            $("#test").css("display", "none");
+    $("#dropbtn1").click(function(){
+        if(document.getElementById("account").style.display == "block"){
+            $("#account").css("display", "none");
         }else{
-            $("#test").css("display", "block")
+            $("#account").css("display", "block")
+        }
+    });
+});
+$(document).ready(function(){
+    $("#dropbtn2").click(function(){
+        if(document.getElementById("dashboard").style.display == "block"){
+            $("#dashboard").css("display", "none");
+        }else{
+            $("#dashboard").css("display", "block")
         }
     });
 });
