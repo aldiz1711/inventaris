@@ -1,4 +1,4 @@
-<div class="box bg-dark">
+<div class="log bg-dark">
     <h2 class="text-white text-center">Register</h2>
     <form method="post">
         <label for="username" class="text-white">Username</label>

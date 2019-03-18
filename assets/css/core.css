@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+.container-fluid{
+  padding:0;
+}
+.content{
+    min-height:700px;
+}
+.dropmenu{
+  display: none;
+  position: absolute;
+  margin-top:10px;
+  background-color: white;
+  box-shadow: 1px 1px 10px black;
+}
+.dropmenu .drop{
+  padding:0;
+  list-style: none;
+}
+.dropmenu .drop .drop-item{
+  padding:10px 25px;
+}
+/* Login / Register */
+.log{
+    max-width: 500px;
+    display: block;
+    margin: 30vh auto;
+    padding:10px 20px;
+    border-radius: 8px;
+}
+.header{
+    display: block;
+    padding:15px 30px;
+    min-width: 1000px;
+}
+.header .header-brand{
+  text-decoration: none;
+}
+.bg-dark .header-brand{
+  color: white;
+}
+.header-brand{
+  font-size: 24px;
+}
+.header .header-nav{
+    display: inline-block;
+    float:right;
+    z-index: 2;
+}
+.header .header-nav .header-item{
+    list-style: none;
+    float:right;
+    padding-right:25px;
+    padding-top:5px;
+}
+.sidebar{
+  height: 100%;
+  min-height: 700px;
+  color:white;
+  padding:20px 0 20px 30px;
+}
+.sidebar ul{
+  padding:0;
+  margin:0;
+}
+.sidebar ul li{
+  list-style: none;
+  padding-bottom:15px;
+}
+.sidebar ul li a{
+  text-decoration: none;
+  font-size: 18px;
+  font-family:'Times New Roman', Times, serif;
+}
+@media only screen and (max-width:1000px){
+  .sidebar{
+    display:none;
+  }
+}
