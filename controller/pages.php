@@ -22,9 +22,9 @@ class Page
                 include_once('view/includes/register.php');
                 break;
             case 'logout':
-                include_once('models/peminjam/index.php');
-                $peminjam = new Peminjam();
-                $peminjam->Logout();
+                include_once('models/data_user/index.php');
+                $datauser = new DataUser();
+                $datauser->Logout();
                 break;
             default:
                 include_once('view/admin/home.php');
@@ -37,27 +37,36 @@ class Page
         switch ($this->queryPage) {
             case 'login':
                 include_once('view/includes/login.php');
-                include_once('models/peminjam/index.php');
-                $peminjam = new Peminjam();
+                include_once('models/data_user/index.php');
+                $datauser = new DataUser();
                 if (isset($_POST['submit'])) {
-                    if ($peminjam->Login($_POST)) {
-                        echo "<script>window.location.href ='?page=admin'</script>";
+                    if ($datauser->Login($_POST)) {
+                        if ($_SESSION['status'] == "3") {
+                          echo "<script>window.location.href ='?page=admin'</script>";
+                        }else if($_SESSION['status'] == "1"){
+                          echo "<script>window.location.href ='index.php'</script>";
+                        }
                     }
                 }
                 break;
             case 'register':
                 include_once('view/includes/register.php');
-                include_once('models/peminjam/index.php');
-                $peminjam = new Peminjam();
+                include_once('models/data_user/index.php');
+                $datauser = new DataUser();
                 if (isset($_POST['submit'])) {
-                    if ($peminjam->Register($_POST)) {
+                    if ($datauser->Register($_POST)) {
                         echo "Register Berhasil";
                     }
-                    else 
+                    else
                     {
                         echo "Register Gagal";
                     }
                 }
+                break;
+            case 'logout':
+                include_once('models/data_user/index.php');
+                $datauser = new DataUser();
+                $datauser->Logout();
                 break;
             default:
                 include_once('models/keluar/index.php');

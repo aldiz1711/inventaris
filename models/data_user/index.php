@@ -1,5 +1,5 @@
 <?php
-    class Peminjam
+    class DataUser
     {
         private $conn;
         public function __construct() {
@@ -50,6 +50,7 @@
         public function Logout()
         {
             session_destroy();
+            echo "<script>window.location.href ='?page=login'</script>";
         }
     }
 ?>
