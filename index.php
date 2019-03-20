@@ -8,9 +8,9 @@
     <!-- Assets Core -->
     <?php require_once('assets/core.php'); ?>
     <!-- PHP CORE -->
-    <?php session_start(); ?>  
+    <?php session_start(); ?>
 </head>
-<body>
+<body class="bg-secondary">
     <?php require_once('view/layout/layout.php'); ?>
 </body>
 </html>

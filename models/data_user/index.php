@@ -12,18 +12,16 @@
         {
             $username = $data["username"];
             $password = $data["password"];
-            $sql = "SELECT nama,no_tlp,status,password FROM user WHERE username=?";
+            $sql = "SELECT nama,status,password FROM user WHERE username=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("s",$username);
             $stmt->execute();
-            $stmt->bind_result($nama,$no_tlp,$status,$pw);
+            $stmt->bind_result($nama,$status,$pw);
             $result = $stmt->fetch();
             if ($result) {
                 if (password_verify($password,$pw)) {
-                    $_SESSION['username'] = $username;
                     $_SESSION['status'] = $status;
                     $_SESSION['nama'] = $nama;
-                    $_SESSION['no_tlp'] = $no_tlp;
                     return true;
                 }
                 return false;

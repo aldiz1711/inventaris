@@ -13,11 +13,12 @@
 .header-item .dropmenu{
   display: none;
   position: absolute;
-  margin-top:10px;
+  margin-top: 10px;
+  z-index: 1;
   background-color: white;
   box-shadow: 1px 1px 10px black;
 }
-.sidebar-item .dropmenu{
+.sidebar-item #barang, .sidebar-item #lokasi{
   display:none;
   position:relative;
   margin:10px;
@@ -34,13 +35,22 @@
   text-decoration: none;
   color:black;
 }
+.dropmenu .drop .drop-item .drop-link:hover{
+  color: #666666;
+}
 /* Login / Register */
 .log{
     max-width: 500px;
-    display: block;
-    margin: 30vh auto;
-    padding:10px 20px;
+    margin: 30vh auto 0;
     border-radius: 8px;
+}
+.reg{
+  max-width: 500px;
+  margin: 15vh auto 0;
+  border-radius: 8px;
+}
+.log-content{
+    padding:10px 20px;
 }
 .header{
     display: block;
@@ -73,7 +83,7 @@
 }
 .sidebar{
   height: 100%;
-  min-height: 700px;
+  min-height: 650px;
   color:white;
   padding:20px 0 20px 0px;
 }

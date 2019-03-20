@@ -2,53 +2,48 @@
 class Page
 {
     var $queryPage = '';
-    function CheckingQuery(){
+    private function CheckingQuery(){
         if (isset($_GET['page'])) {
             $this->queryPage = $_GET['page'];
         }
     }
-    function AuthenticationPages(){
-        if (isset($_SESSION['status']) && $_SESSION['status'] == "3") {
-            return true;
+    private function AuthenticationPages(){
+        if (isset($_SESSION['status'])) {
+            return $_SESSION['status'];
         }
-        return false;
+        return null;
     }
-    function AdminPages(){
+    private function AdminPages(){
         switch ($this->queryPage) {
-            case 'admin':
-                include_once('view/admin/home.php');
-                break;
-            case 'register':
-                include_once('view/includes/register.php');
-                break;
             case 'logout':
                 include_once('models/data_user/index.php');
                 $datauser = new DataUser();
                 $datauser->Logout();
                 break;
             default:
-                include_once('view/admin/home.php');
+                include_once('view/includes/header/home.php');
+                include_once('view/includes/sidebar/home.php');
                 break;
 
         }
     }
 
-    function DefaultPages(){
+    private function PeminjamPages()
+    {
         switch ($this->queryPage) {
-            case 'login':
-                include_once('view/includes/login.php');
+            case 'logout':
                 include_once('models/data_user/index.php');
                 $datauser = new DataUser();
-                if (isset($_POST['submit'])) {
-                    if ($datauser->Login($_POST)) {
-                        if ($_SESSION['status'] == "3") {
-                          echo "<script>window.location.href ='?page=admin'</script>";
-                        }else if($_SESSION['status'] == "1"){
-                          echo "<script>window.location.href ='index.php'</script>";
-                        }
-                    }
-                }
+                $datauser->Logout();
                 break;
+            default:
+                include_once('view/includes/header/home.php');
+                break;
+        }
+    }
+
+    private function DefaultPages(){
+        switch ($this->queryPage) {
             case 'register':
                 include_once('view/includes/register.php');
                 include_once('models/data_user/index.php');
@@ -69,21 +64,34 @@ class Page
                 $datauser->Logout();
                 break;
             default:
-                include_once('models/keluar/index.php');
-                $keluar = new Keluar();
-                include_once('view/includes/home.php');
+                include_once('view/includes/login.php');
+                include_once('models/data_user/index.php');
+                $datauser = new DataUser();
+                if (isset($_POST['submit'])) {
+                    if ($datauser->Login($_POST)) {
+                        echo "<script>window.location.href ='/Inventaris/'</script>";
+                    }
+                }
                 break;
         }
     }
-    function CorePages(){
-        if (Self::AuthenticationPages()) {
+    public function CorePages(){
+        Self::CheckingQuery();
+        if (Self::AuthenticationPages() == "1")
+        {
+            // Admin
             Self::AdminPages();
-        }
-        elseif (!Self::AuthenticationPages() && $this->queryPage == "admin") {
-            echo "<script>window.location.href = '/Inventaris/?page=login'</script>";
-        }
-        else{
+        } else if(Self::AuthenticationPages() == "2")
+        {
+            // Operator
+        }else if(Self::AuthenticationPages() == "3")
+        {
+            // Peminjam
+            Self::PeminjamPages();
+        }else{
+            // Defau
             Self::DefaultPages();
         }
+
     }
 }
