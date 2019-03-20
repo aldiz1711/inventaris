@@ -38,6 +38,7 @@ class Page
                 break;
             default:
                 include_once('view/includes/header/home.php');
+                include_once('view/includes/sidebar/home.php');
                 break;
         }
     }
